@@ -1,67 +1,164 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>INDOTOTO77</title>
-<style>
-body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#0b1020;
-  color:white;
-  text-align:center;
-}
-.container{
-  max-width:800px;
-  margin:auto;
-  padding:60px 20px;
-}
-.box{
-  background:#151d30;
-  border:1px solid #39445c;
-  border-radius:25px;
-  padding:40px 25px;
-}
-h1{
-  font-size:42px;
-  margin-bottom:15px;
-}
-h1 span{color:#c084fc}
-p{
-  color:#b7c0d0;
-  line-height:1.7;
-}
-a{
-  display:inline-block;
-  margin-top:20px;
-  padding:15px 24px;
-  background:#a855f7;
-  color:white;
-  text-decoration:none;
-  border-radius:12px;
-  font-weight:bold;
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>INDOTOTO77</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: white;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 35px 10px 25px;
+    }
+
+    .logo {
+      font-size: 38px;
+      font-weight: bold;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #b8c0d0;
+      font-size: 16px;
+    }
+
+    .card {
+      background: #151c2e;
+      border: 1px solid #29344d;
+      border-radius: 18px;
+      padding: 25px;
+      margin-top: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+
+    .card h2 {
+      margin-bottom: 12px;
+      font-size: 25px;
+    }
+
+    .card p {
+      color: #c5cada;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin-top: 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: bold;
+      color: white;
+      background: #229ed9;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+    }
+
+    .button.secondary {
+      background: #252f46;
+    }
+
+    .info {
+      margin-top: 25px;
+      padding: 20px;
+      background: #111827;
+      border-radius: 15px;
+      text-align: left;
+    }
+
+    .info h3 {
+      margin-bottom: 10px;
+    }
+
+    .info p {
+      color: #b8c0d0;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      color: #7f899d;
+      font-size: 13px;
+      padding: 30px 10px;
+    }
+  </style>
 </head>
 
 <body>
-<div class="container">
-  <div class="box">
-    <h1>INDO<span>TOTO77</span></h1>
 
-    <p>
-      Selamat datang di website INDOTOTO77.
-    </p>
+  <div class="container">
 
-    <p>
-      Hubungi kami melalui Telegram.
-    </p>
+    <header>
+      <div class="logo">INDOTOTO77</div>
+      <div class="subtitle">Website resmi informasi & layanan</div>
+    </header>
 
-    <a href="https://t.me/Lyli_INDOTOTO77">
-      Hubungi Telegram
-    </a>
+    <div class="card">
+      <h2>Selamat Datang</h2>
+
+      <p>
+        Selamat datang di website INDOTOTO77.
+        Silakan gunakan tombol di bawah untuk mendapatkan
+        informasi dan menghubungi layanan kami.
+      </p>
+
+      <a
+        class="button"
+        href="https://t.me/Lyli_INDOTOTO77"
+        target="_blank"
+        rel="noopener">
+        💬 Hubungi Telegram
+      </a>
+
+      <a
+        class="button secondary"
+        href="#informasi">
+        ℹ️ Informasi
+      </a>
+    </div>
+
+    <div class="info" id="informasi">
+      <h3>Tentang Website</h3>
+
+      <p>
+        Halaman ini dibuat agar dapat diakses dengan nyaman
+        melalui perangkat Android maupun komputer.
+      </p>
+    </div>
+
+    <footer>
+      © 2026 INDOTOTO77. Semua hak dilindungi.
+    </footer>
+
   </div>
-</div>
+
 </body>
 </html>
