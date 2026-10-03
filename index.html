@@ -1,164 +1,542 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>INDOTOTO77 - Game Lobby</title>
 
-  <title>INDOTOTO77</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#070b14;
+  color:#fff;
+}
+button{font-family:inherit}
+.app{max-width:650px;margin:auto;padding-bottom:90px}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+/* HEADER */
+.header{
+  padding:18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#0c111d;
+  border-bottom:1px solid #202a3b;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.logo{
+  width:42px;height:42px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#7b2cbf,#c77dff);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+.brand b{font-size:18px}
+.menu{
+  width:42px;height:42px;
+  border:0;border-radius:12px;
+  background:#182133;
+  color:#fff;
+  font-size:20px;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0b1020;
-      color: white;
-      min-height: 100vh;
-    }
+/* HERO */
+.hero{
+  margin:18px;
+  padding:24px;
+  border-radius:22px;
+  background:
+    radial-gradient(circle at 90% 20%,#8e44ad55,transparent 35%),
+    linear-gradient(135deg,#171d31,#101624);
+  border:1px solid #303b55;
+}
+.hero h1{margin:0 0 8px;font-size:30px}
+.hero p{margin:0;color:#aeb7c8;line-height:1.5}
 
-    .container {
-      width: 100%;
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-    }
+/* BALANCE */
+.balance{
+  margin:18px;
+  padding:20px;
+  border-radius:18px;
+  background:#121927;
+  border:1px solid #29354a;
+}
+.balance-top{
+  display:flex;
+  justify-content:space-between;
+  color:#8f9aae;
+  font-size:13px;
+}
+.balance-number{
+  margin:8px 0 18px;
+  font-size:32px;
+  font-weight:bold;
+  color:#ffd54a;
+}
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.action{
+  padding:13px;
+  border:0;
+  border-radius:12px;
+  color:#fff;
+  font-weight:bold;
+  background:#202b40;
+}
+.action.primary{background:#7b2cbf}
 
-    header {
-      text-align: center;
-      padding: 35px 10px 25px;
-    }
+/* SECTION */
+.section{
+  padding:0 18px;
+}
+.section-title{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin:25px 0 13px;
+}
+.section-title h2{
+  font-size:20px;
+  margin:0;
+}
+.section-title span{
+  color:#8e98aa;
+  font-size:13px;
+}
 
-    .logo {
-      font-size: 38px;
-      font-weight: bold;
-      color: #ffffff;
-      margin-bottom: 10px;
-    }
+/* GAME GRID */
+.games{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.game{
+  min-height:150px;
+  padding:18px;
+  border-radius:18px;
+  border:1px solid #29354a;
+  background:linear-gradient(145deg,#171f31,#101622);
+  position:relative;
+  overflow:hidden;
+}
+.game:after{
+  content:"";
+  position:absolute;
+  width:100px;height:100px;
+  right:-35px;top:-35px;
+  border-radius:50%;
+  background:#8e44ad22;
+}
+.game-icon{
+  font-size:38px;
+  margin-bottom:13px;
+}
+.game h3{
+  margin:0 0 5px;
+  font-size:16px;
+}
+.game p{
+  margin:0;
+  color:#8994a7;
+  font-size:12px;
+}
+.play{
+  margin-top:12px;
+  width:100%;
+  padding:9px;
+  border:0;
+  border-radius:9px;
+  background:#252f43;
+  color:#fff;
+  font-weight:bold;
+}
 
-    .subtitle {
-      color: #b8c0d0;
-      font-size: 16px;
-    }
+/* BONUS */
+.bonus{
+  padding:20px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#332052,#181629);
+  border:1px solid #563879;
+}
+.bonus h2{margin:0 0 8px}
+.bonus p{
+  color:#b6aec3;
+  line-height:1.5;
+  font-size:14px;
+}
+.bonus button{
+  width:100%;
+  padding:13px;
+  border:0;
+  border-radius:11px;
+  background:#9b59b6;
+  color:white;
+  font-weight:bold;
+}
 
-    .card {
-      background: #151c2e;
-      border: 1px solid #29344d;
-      border-radius: 18px;
-      padding: 25px;
-      margin-top: 20px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    }
+/* HISTORY */
+.history{
+  background:#121927;
+  border:1px solid #29354a;
+  border-radius:18px;
+  overflow:hidden;
+}
+.row{
+  padding:14px;
+  display:flex;
+  justify-content:space-between;
+  border-bottom:1px solid #252f40;
+}
+.row:last-child{border-bottom:0}
+.row small{color:#808b9d}
+.plus{color:#48d597}
+.minus{color:#ff7777}
+.empty{
+  padding:20px;
+  text-align:center;
+  color:#7e899b;
+}
 
-    .card h2 {
-      margin-bottom: 12px;
-      font-size: 25px;
-    }
+/* BOTTOM NAV */
+.nav{
+  position:fixed;
+  bottom:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:100%;
+  max-width:650px;
+  padding:10px 15px;
+  background:#0c111d;
+  border-top:1px solid #222d40;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  z-index:20;
+}
+.nav button{
+  border:0;
+  background:transparent;
+  color:#8792a4;
+  padding:7px;
+}
+.nav button.active{color:#c77dff}
+.nav-icon{display:block;font-size:21px}
+.nav small{font-size:11px}
 
-    .card p {
-      color: #c5cada;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#000b;
+  z-index:30;
+  padding:25px;
+}
+.modal-box{
+  max-width:500px;
+  margin:70px auto;
+  padding:22px;
+  background:#151c2a;
+  border:1px solid #344057;
+  border-radius:18px;
+}
+.modal-box h2{margin-top:0}
+.modal-box input,
+.modal-box select{
+  width:100%;
+  padding:13px;
+  margin:8px 0;
+  border-radius:10px;
+  border:1px solid #39465c;
+  background:#0c111b;
+  color:#fff;
+}
+.modal-box button{
+  width:100%;
+  padding:13px;
+  margin-top:8px;
+  border:0;
+  border-radius:10px;
+  background:#7b2cbf;
+  color:white;
+  font-weight:bold;
+}
+.close{background:#303b4d!important}
 
-    .button {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      margin-top: 12px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 17px;
-      font-weight: bold;
-      color: white;
-      background: #229ed9;
-    }
-
-    .button:hover {
-      opacity: 0.9;
-    }
-
-    .button.secondary {
-      background: #252f46;
-    }
-
-    .info {
-      margin-top: 25px;
-      padding: 20px;
-      background: #111827;
-      border-radius: 15px;
-      text-align: left;
-    }
-
-    .info h3 {
-      margin-bottom: 10px;
-    }
-
-    .info p {
-      color: #b8c0d0;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      color: #7f899d;
-      font-size: 13px;
-      padding: 30px 10px;
-    }
-  </style>
+@media(max-width:420px){
+  .games{grid-template-columns:1fr}
+  .hero h1{font-size:26px}
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="app">
 
-    <header>
-      <div class="logo">INDOTOTO77</div>
-      <div class="subtitle">Website resmi informasi & layanan</div>
-    </header>
-
-    <div class="card">
-      <h2>Selamat Datang</h2>
-
-      <p>
-        Selamat datang di website INDOTOTO77.
-        Silakan gunakan tombol di bawah untuk mendapatkan
-        informasi dan menghubungi layanan kami.
-      </p>
-
-      <a
-        class="button"
-        href="https://t.me/Lyli_INDOTOTO77"
-        target="_blank"
-        rel="noopener">
-        💬 Hubungi Telegram
-      </a>
-
-      <a
-        class="button secondary"
-        href="#informasi">
-        ℹ️ Informasi
-      </a>
-    </div>
-
-    <div class="info" id="informasi">
-      <h3>Tentang Website</h3>
-
-      <p>
-        Halaman ini dibuat agar dapat diakses dengan nyaman
-        melalui perangkat Android maupun komputer.
-      </p>
-    </div>
-
-    <footer>
-      © 2026 INDOTOTO77. Semua hak dilindungi.
-    </footer>
-
+<!-- HEADER -->
+<header class="header">
+  <div class="brand">
+    <div class="logo">77</div>
+    <b>INDOTOTO77</b>
   </div>
 
-</body>
-</html>
+  <button class="menu" onclick="openProfile()">☰</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Selamat Datang 👋</h1>
+  <p>
+    Nikmati berbagai permainan demo dengan
+    sistem koin virtual.
+  </p>
+</section>
+
+<!-- BALANCE -->
+<section class="balance">
+  <div class="balance-top">
+    <span>SALDO KOIN VIRTUAL</span>
+    <span>🪙 COIN</span>
+  </div>
+
+  <div class="balance-number" id="balance">1.000</div>
+
+  <div class="actions">
+    <button class="action primary" onclick="openDeposit()">
+      + Deposit
+    </button>
+
+    <button class="action" onclick="openWithdraw()">
+      − Penarikan
+    </button>
+  </div>
+</section>
+
+<!-- GAMES -->
+<section class="section">
+
+  <div class="section-title">
+    <h2>🎮 Game Lobby</h2>
+    <span>Demo</span>
+  </div>
+
+  <div class="games">
+
+    <div class="game">
+      <div class="game-icon">🎯</div>
+      <h3>Target Game</h3>
+      <p>Permainan target virtual</p>
+      <button class="play" onclick="playGame('Target Game')">
+        MAIN
+      </button>
+    </div>
+
+    <div class="game">
+      <div class="game-icon">🧩</div>
+      <h3>Puzzle</h3>
+      <p>Permainan puzzle santai</p>
+      <button class="play" onclick="playGame('Puzzle')">
+        MAIN
+      </button>
+    </div>
+
+    <div class="game">
+      <div class="game-icon">🏆</div>
+      <h3>Challenge</h3>
+      <p>Tantangan koin virtual</p>
+      <button class="play" onclick="playGame('Challenge')">
+        MAIN
+      </button>
+    </div>
+
+    <div class="game">
+      <div class="game-icon">🎁</div>
+      <h3>Lucky Box</h3>
+      <p>Hadiah virtual acak</p>
+      <button class="play" onclick="playGame('Lucky Box')">
+        MAIN
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- BONUS -->
+<section class="section">
+
+  <div class="section-title">
+    <h2>🎁 Bonus</h2>
+  </div>
+
+  <div class="bonus">
+    <h2>Bonus Harian</h2>
+    <p>
+      Klaim 100 koin virtual setiap kali
+      membuka halaman demo.
+    </p>
+
+    <button onclick="claimBonus()">
+      KLAIM +100 COIN
+    </button>
+  </div>
+
+</section>
+
+<!-- HISTORY -->
+<section class="section">
+
+  <div class="section-title">
+    <h2>📜 Aktivitas</h2>
+  </div>
+
+  <div class="history" id="history">
+    <div class="empty">Belum ada aktivitas.</div>
+  </div>
+
+</section>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="nav">
+  <button class="active" onclick="scrollTopPage()">
+    <span class="nav-icon">🏠</span>
+    <small>Lobby</small>
+  </button>
+
+  <button onclick="scrollGames()">
+    <span class="nav-icon">🎮</span>
+    <small>Game</small>
+  </button>
+
+  <button onclick="scrollHistory()">
+    <span class="nav-icon">📜</span>
+    <small>Riwayat</small>
+  </button>
+
+  <button onclick="openProfile()">
+    <span class="nav-icon">👤</span>
+    <small>Profil</small>
+  </button>
+</nav>
+
+<!-- PROFILE MODAL -->
+<div class="modal" id="profileModal">
+  <div class="modal-box">
+    <h2>👤 Profil Demo</h2>
+    <p>Username: <b>Player77</b></p>
+    <p>Saldo: 🪙 <span id="profileBalance">1000</span></p>
+
+    <button onclick="openTelegram()">
+      ✈️ Telegram
+    </button>
+
+    <button class="close" onclick="closeModal()">
+      TUTUP
+    </button>
+  </div>
+</div>
+
+<!-- DEPOSIT MODAL -->
+<div class="modal" id="depositModal">
+  <div class="modal-box">
+    <h2>➕ Deposit Virtual</h2>
+
+    <select id="depositMethod">
+      <option>BCA</option>
+      <option>BRI</option>
+      <option>BNI</option>
+      <option>Mandiri</option>
+      <option>CIMB Niaga</option>
+      <option>Permata</option>
+      <option>DANA</option>
+      <option>OVO</option>
+      <option>GoPay</option>
+      <option>ShopeePay</option>
+    </select>
+
+    <input
+      id="depositAmount"
+      type="number"
+      placeholder="Jumlah koin virtual">
+
+    <button onclick="deposit()">
+      TAMBAHKAN KOIN
+    </button>
+
+    <button class="close" onclick="closeModal()">
+      BATAL
+    </button>
+  </div>
+</div>
+
+<!-- WITHDRAW MODAL -->
+<div class="modal" id="withdrawModal">
+  <div class="modal-box">
+    <h2>➖ Penarikan Virtual</h2>
+
+    <select id="withdrawMethod">
+      <option>BCA</option>
+      <option>BRI</option>
+      <option>BNI</option>
+      <option>Mandiri</option>
+      <option>CIMB Niaga</option>
+      <option>Permata</option>
+      <option>DANA</option>
+      <option>OVO</option>
+      <option>GoPay</option>
+      <option>ShopeePay</option>
+    </select>
+
+    <input
+      id="withdrawAmount"
+      type="number"
+      placeholder="Jumlah koin virtual">
+
+    <button onclick="withdraw()">
+      TARIK KOIN
+    </button>
+
+    <button class="close" onclick="closeModal()">
+      BATAL
+    </button>
+  </div>
+</div>
+
+<script>
+
+let balance =
+  Number(localStorage.getItem("coinBalance"));
+
+if(!Number.isFinite(balance)){
+  balance=1000;
+}
+
+let history =
+  JSON.parse(localStorage.getItem("coinHistory") || "[]");
+
+function save(){
+  localStorage.setItem("coinBalance",balance);
+  localStorage.setItem(
+    "coinHistory",
+    JSON.stringify(history)
+  );
+}
+
+function render(){
+
+  document.getElementById("balance").textContent =
+    balance.to
