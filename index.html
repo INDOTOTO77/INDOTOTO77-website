@@ -1,288 +1,221 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lobby Situs Slot Gacor Modern</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>INDOTOTO77 - Game Lobby</title>
 
-        body {
-            background-color: #121214;
-            color: #ffffff;
-        }
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#09090d;color:#fff;padding-bottom:75px}
+header{position:sticky;top:0;z-index:1000;padding:12px 15px;background:linear-gradient(#19191f,#0d0d11);border-bottom:2px solid #d4af37}
+.top{display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:25px;font-weight:900;color:#ffd84a}.logo span{color:#fff}
+.auth{display:flex;gap:7px}.auth button{padding:9px 13px;border-radius:6px;font-weight:bold}
+.login{background:transparent;border:1px solid #d4af37;color:#ffd84a}
+.register{background:linear-gradient(#ffe77a,#c99a20);border:0}
+.wallet{margin-top:10px;padding:10px;border-radius:8px;background:#1b1b21;border:1px solid #33333b}
+.label{font-size:10px;color:#999}.balance{margin-top:3px;color:#ffd84a;font-size:18px;font-weight:bold}
+.wallet-buttons{display:flex;gap:7px;margin-top:8px}.wallet-buttons button{flex:1;border:0;border-radius:5px;padding:8px;font-weight:bold}
+.deposit{background:#218838;color:#fff}.withdraw{background:#555;color:#fff}
 
-        /* Header & Navigasi */
-        header {
-            background-color: #1a1a1e;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #d4af37;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+.hero{min-height:250px;display:flex;align-items:center;justify-content:center;text-align:center;padding:25px;background:radial-gradient(circle,#674717,#21170c 35%,#09090d 75%)}
+.hero h1{font-size:30px;margin-bottom:10px}.hero h1 span{color:#ffd84a}.hero p{color:#bbb;font-size:14px}
+.hero button{margin-top:18px;padding:12px 25px;border:0;border-radius:6px;background:#d4af37;font-weight:bold}
 
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #d4af37;
-            text-transform: uppercase;
-        }
+.categories{display:flex;gap:8px;overflow-x:auto;padding:14px;background:#131318}
+.category{white-space:nowrap;padding:9px 16px;border-radius:20px;border:1px solid #3a3a42;background:#222228;color:#bbb}
+.category.active{background:#d4af37;color:#111}
 
-        .auth-buttons button {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-left: 10px;
-        }
+section{padding:20px 15px}.section-title{border-left:4px solid #d4af37;padding-left:9px;margin-bottom:15px}
+.games{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.game{overflow:hidden;background:#18181d;border:1px solid #2d2d34;border-radius:8px}
+.game-img{height:140px;display:flex;justify-content:center;align-items:center;text-align:center;font-weight:bold;background:radial-gradient(circle,#79561d,#17130c)}
+.game:nth-child(2) .game-img{background:radial-gradient(circle,#315d8a,#10151e)}
+.game:nth-child(3) .game-img{background:radial-gradient(circle,#9d2850,#24101a)}
+.game:nth-child(4) .game-img{background:radial-gradient(circle,#168c77,#09201d)}
+.game-info{padding:10px}.game-name{font-size:13px;font-weight:bold}
+.game-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.play{border:0;background:#d4af37;padding:6px 10px;border-radius:4px;font-size:10px;font-weight:bold}
 
-        .btn-login {
-            background-color: transparent;
-            color: #d4af37;
-            border: 1px solid #d4af37 !important;
-        }
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;z-index:3000;background:rgba(0,0,0,.78);align-items:center;justify-content:center;padding:15px}
+.box{width:100%;max-width:420px;background:#19191f;border:1px solid #d4af37;border-radius:12px;padding:18px}
+.box h2{color:#ffd84a;margin-bottom:14px}.close{float:right;font-size:22px;color:#aaa;cursor:pointer}
+.box input{width:100%;padding:11px;margin:7px 0;background:#0d0d11;border:1px solid #444;border-radius:6px;color:#fff}
+.primary{width:100%;padding:11px;border:0;border-radius:6px;background:#d4af37;font-weight:bold;margin-top:8px}
 
-        .btn-register {
-            background: linear-gradient(180deg, #ffe066 0%, #d4af37 100%);
-            color: #000;
-        }
+/* PAYMENT OPTIONS */
+.methods{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:12px 0}
+.method{padding:12px;background:#25252b;border:1px solid #444;border-radius:7px;text-align:center;color:#ddd;cursor:pointer}
+.method.selected{border-color:#ffd84a;background:#3a321a;color:#ffd84a}
+.amounts{display:flex;gap:6px;overflow-x:auto;margin:10px 0}
+.amount{white-space:nowrap;padding:8px 12px;background:#24242a;color:#ddd;border:1px solid #444;border-radius:5px}
+.amount.selected{background:#d4af37;color:#111}
 
-        /* Banner Promosi */
-        .banner {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(45deg, #2c1a4d, #0f0c1b);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-bottom: 1px solid #2a2a30;
-        }
+/* BOT */
+.bot-button{position:fixed;right:16px;bottom:88px;width:58px;height:58px;border:0;border-radius:50%;background:#229ed9;color:white;font-size:25px;z-index:2000}
+.bot-window{display:none;position:fixed;right:12px;bottom:155px;width:calc(100% - 24px);max-width:370px;height:500px;background:#17171c;border:1px solid #d4af37;border-radius:12px;overflow:hidden;z-index:1999;box-shadow:0 10px 40px #000}
+.bot-header{padding:14px;background:linear-gradient(90deg,#d4af37,#8d6917);color:#111;font-weight:bold}
+.bot-status{font-size:10px;margin-top:3px}.chat{height:365px;overflow-y:auto;padding:12px}
+.message{max-width:85%;padding:9px 11px;border-radius:10px;margin-bottom:8px;font-size:12px;line-height:1.4}
+.bot{background:#292930}.user{background:#d4af37;color:#111;margin-left:auto}
+.quick{display:flex;gap:5px;padding:7px;overflow-x:auto;border-top:1px solid #333}
+.quick button{white-space:nowrap;border:1px solid #555;background:#24242a;color:#ddd;border-radius:15px;padding:6px 10px;font-size:10px}
+.input-area{display:flex;padding:8px;gap:6px;border-top:1px solid #333}
+.input-area input{flex:1;background:#0e0e12;color:white;border:1px solid #444;border-radius:6px;padding:9px}
+.input-area button{border:0;background:#d4af37;border-radius:6px;padding:0 13px;font-weight:bold}
+.telegram{display:block;margin:8px;padding:9px;text-align:center;text-decoration:none;background:#229ed9;color:#fff;border-radius:6px;font-size:12px}
 
-        .banner-content h1 {
-            font-size: 28px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        
-        .banner-content span {
-            color: #ffe066;
-            font-weight: bold;
-        }
+/* NAV */
+.bottom{position:fixed;left:0;right:0;bottom:0;height:70px;display:grid;grid-template-columns:repeat(5,1fr);background:#121216;border-top:1px solid #333;z-index:1500}
+.bottom button{border:0;background:none;color:#888;font-size:10px}.bottom strong{display:block;font-size:18px;margin-bottom:3px}.bottom .active{color:#ffd84a}
 
-        /* Filter Provider */
-        .provider-filter {
-            display: flex;
-            gap: 10px;
-            padding: 20px;
-            overflow-x: auto;
-            background-color: #16161a;
-        }
+.note{font-size:10px;color:#888;line-height:1.5;margin-top:10px}
 
-        .provider-btn {
-            background-color: #26262b;
-            color: #ccc;
-            border: 1px solid #3a3a42;
-            padding: 8px 20px;
-            border-radius: 20px;
-            white-space: nowrap;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .provider-btn.active, .provider-btn:hover {
-            background-color: #d4af37;
-            color: #000;
-            font-weight: bold;
-        }
-
-        /* Grid Game Slot */
-        .game-section {
-            padding: 20px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            margin-bottom: 15px;
-            border-left: 4px solid #d4af37;
-            padding-left: 10px;
-        }
-
-        .game-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 15px;
-        }
-
-        .game-card {
-            background-color: #1a1a1e;
-            border-radius: 8px;
-            overflow: hidden;
-            position: relative;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            transition: transform 0.2s;
-            border: 1px solid #2a2a30;
-        }
-
-        .game-card:hover {
-            transform: translateY(-5px);
-            border-color: #d4af37;
-        }
-
-        .game-img {
-            width: 100%;
-            height: 140px;
-            background-color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 12px;
-            color: #888;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .game-info {
-            padding: 10px;
-            text-align: center;
-        }
-
-        .game-title {
-            font-size: 13px;
-            font-weight: bold;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .rtp-badge {
-            background-color: #28a745;
-            color: white;
-            font-size: 11px;
-            padding: 2px 6px;
-            border-radius: 4px;
-            display: inline-block;
-            margin-top: 5px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #0b0b0d;
-            text-align: center;
-            padding: 20px;
-            color: #666;
-            font-size: 12px;
-            margin-top: 4px;
-            border-top: 1px solid #2a2a30;
-        }
-    </style>
+@media(min-width:700px){
+.games{grid-template-columns:repeat(4,1fr)}
+.hero h1{font-size:40px}
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header>
-        <div class="logo">NEXUS<span>SLOT</span></div>
-        <div class="auth-buttons">
-            <button class="btn-login">MASUK</button>
-            <button class="btn-register">DAFTAR</button>
-        </div>
-    </header>
+<header>
+<div class="top">
+<div class="logo">INDOTOTO<span>77</span></div>
+<div class="auth">
+<button class="login" onclick="openModal('loginModal')">MASUK</button>
+<button class="register" onclick="openModal('registerModal')">DAFTAR</button>
+</div>
+</div>
 
-    <!-- Banner Promosi -->
-    <div class="banner">
-        <div class="banner-content">
-            <h1>WELCOME BONUS MINGGUAN <br><span>DEPOSIT 100% EXTRA!</span></h1>
-            <p>Mainkan Slot Gacor Hari Ini & Menangkan Jackpot Terbesarmu</p>
-        </div>
-    </div>
+<div class="wallet">
+<div class="label">SALDO VIRTUAL</div>
+<div class="balance" id="balance">Rp 100.000</div>
+<div class="wallet-buttons">
+<button class="deposit" onclick="openDeposit()">DEPOSIT</button>
+<button class="withdraw" onclick="openWithdraw()">WITHDRAW</button>
+</div>
+</div>
+</header>
 
-    <!-- Filter Kategori / Provider -->
-    <div class="provider-filter">
-        <button class="provider-btn active">Semua Game</button>
-        <button class="provider-btn">Pragmatic Play</button>
-        <button class="provider-btn">PG Soft</button>
-        <button class="provider-btn">Habanero</button>
-        <button class="provider-btn">Microgaming</button>
-        <button class="provider-btn">Joker Gaming</button>
-    </div>
 
-    <!-- Grid Utama Game Slot -->
-    <main class="game-section">
-        <h2 class="section-title">Game Slot Populer</h2>
-        <div class="game-grid">
-            
-            <!-- Game 1 -->
-            <div class="game-card">
-                <div class="game-img" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://placeholder.com');"></div>
-                <div class="game-info">
-                    <div class="game-title">Gates of Olympus</div>
-                    <span class="rtp-badge">RTP 96.5%</span>
-                </div>
-            </div>
+<div class="hero">
+<div>
+<h1>WELCOME TO <span>INDOTOTO77</span></h1>
+<p>Game virtual modern untuk hiburan.</p>
+<button onclick="document.getElementById('games').scrollIntoView({behavior:'smooth'})">
+LIHAT GAME
+</button>
+</div>
+</div>
 
-            <!-- Game 2 -->
-            <div class="game-card">
-                <div class="game-img" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://placeholder.com');"></div>
-                <div class="game-info">
-                    <div class="game-title">Mahjong Ways 2</div>
-                    <span class="rtp-badge">RTP 97.2%</span>
-                </div>
-            </div>
 
-            <!-- Game 3 -->
-            <div class="game-card">
-                <div class="game-img" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://placeholder.com');"></div>
-                <div class="game-info">
-                    <div class="game-title">Sweet Bonanza</div>
-                    <span class="rtp-badge">RTP 95.8%</span>
-                </div>
-            </div>
+<div class="categories">
+<button class="category active">SEMUA</button>
+<button class="category">POPULER</button>
+<button class="category">ARCADE</button>
+<button class="category">SPORT</button>
+<button class="category">CASUAL</button>
+</div>
 
-            <!-- Game 4 -->
-            <div class="game-card">
-                <div class="game-img" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://placeholder.com');"></div>
-                <div class="game-info">
-                    <div class="game-title">Koi Gate</div>
-                    <span class="rtp-badge">RTP 96.1%</span>
-                </div>
-            </div>
 
-            <!-- Game 5 -->
-            <div class="game-card">
-                <div class="game-img" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://placeholder.com');"></div>
-                <div class="game-info">
-                    <div class="game-title">Starlight Princess</div>
-                    <span class="rtp-badge">RTP 96.8%</span>
-                </div>
-            </div>
+<section id="games">
+<h2 class="section-title">GAME POPULER</h2>
 
-            <!-- Game 6 -->
-            <div class="game-card">
-                <div class="game-img" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://placeholder.com');"></div>
-                <div class="game-info">
-                    <div class="game-title">Wild West Gold</div>
-                    <span class="rtp-badge">RTP 94.3%</span>
-                </div>
-            </div>
+<div class="games">
 
-        </div>
-    </main>
+<div class="game">
+<div class="game-img">GATES<br>OF OLYMPUS</div>
+<div class="game-info">
+<div class="game-name">Gates of Olympus</div>
+<div class="game-row"><small>VIRTUAL</small><button class="play" onclick="playGame('Gates of Olympus')">MAIN</button></div>
+</div>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 INDOTOTO77. Semua Hak Cipta Dilindungi Undang-Undang.</p>
-        <p>Permainan ini hanya untuk usia 18 tahun ke atas.</p>
-    </footer>
+<div class="game">
+<div class="game-img">MAHJONG<br>WAYS</div>
+<div class="game-info">
+<div class="game-name">Mahjong Ways 2</div>
+<div class="game-row"><small>VIRTUAL</small><button class="play" onclick="playGame('Mahjong Ways 2')">MAIN</button></div>
+</div>
+</div>
 
-</body>
-                                           </html>
+<div class="game">
+<div class="game-img">SWEET<br>BONANZA</div>
+<div class="game-info">
+<div class="game-name">Sweet Bonanza</div>
+<div class="game-row"><small>VIRTUAL</small><button class="play" onclick="playGame('Sweet Bonanza')">MAIN</button></div>
+</div>
+</div>
+
+<div class="game">
+<div class="game-img">KOI<br>GATE</div>
+<div class="game-info">
+<div class="game-name">Koi Gate</div>
+<div class="game-row"><small>VIRTUAL</small><button class="play" onclick="playGame('Koi Gate')">MAIN</button></div>
+</div>
+</div>
+
+</div>
+</section>
+
+
+<!-- DEPOSIT MODAL -->
+<div class="modal" id="depositModal">
+<div class="box">
+<span class="close" onclick="closeModal('depositModal')">×</span>
+<h2>DEPOSIT SEKARANG</h2>
+
+<p class="note">Pilih metode untuk simulasi top-up saldo virtual.</p>
+
+<div class="methods">
+<div class="method" onclick="selectMethod(this)">BCA</div>
+<div class="method" onclick="selectMethod(this)">BRI</div>
+<div class="method" onclick="selectMethod(this)">BNI</div>
+<div class="method" onclick="selectMethod(this)">Mandiri</div>
+<div class="method" onclick="selectMethod(this)">DANA</div>
+<div class="method" onclick="selectMethod(this)">OVO</div>
+<div class="method" onclick="selectMethod(this)">GoPay</div>
+<div class="method" onclick="selectMethod(this)">LinkAja</div>
+</div>
+
+<div class="amounts">
+<button class="amount" onclick="selectAmount(this,10000)">10K</button>
+<button class="amount" onclick="selectAmount(this,25000)">25K</button>
+<button class="amount" onclick="selectAmount(this,50000)">50K</button>
+<button class="amount" onclick="selectAmount(this,100000)">100K</button>
+</div>
+
+<button class="primary" onclick="virtualDeposit()">
+DEPOSIT
+</button>
+
+<p class="note">
+Semua metode dan nominal di halaman ini hanya simulasi.
+Adalah Nyata
+</p>
+</div>
+</div>
+
+
+<!-- WITHDRAW MODAL -->
+<div class="modal" id="withdrawModal">
+<div class="box">
+<span class="close" onclick="closeModal('withdrawModal')">×</span>
+<h2>WITHDRAW VIRTUAL</h2>
+
+<p class="note">
+Penarikan hanya berupa simulasi pengurangan saldo virtual.
+</p>
+
+<div class="methods">
+<div class="method" onclick="selectMethod(this)">BCA</div>
+<div class="method" onclick="selectMethod(this)">BRI</div>
+<div class="method" onclick="selectMethod(this)">BNI</div>
+<div class="method" onclick="selectMethod(this)">Mandiri</div>
+<div class="method" onclick="selectMethod(this)">DANA</div>
+<div class="method" onclick="
